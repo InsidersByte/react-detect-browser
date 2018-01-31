@@ -1,6 +1,6 @@
 {
   "name": "react-detect-browser",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "React component to detect the browser",
   "main": "dist/index.js",
   "files": ["dist"],
