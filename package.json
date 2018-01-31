@@ -1,0 +1,76 @@
+{
+  "name": "react-detect-browser",
+  "version": "0.0.0",
+  "description": "React component to detect the browser",
+  "main": "dist/index.js",
+  "files": ["dist"],
+  "keywords": ["react-component", "react", "detect-browser"],
+  "scripts": {
+    "precommit": "lint-staged",
+    "prebuild": "rimraf dist",
+    "build":
+      "babel src --ignore test.js --out-dir dist && flow-copy-source --ignore '**/*.test.js' src dist",
+    "lint":
+      "eslint --ignore-path .gitignore --ignore-pattern flow-typed --ignore-pattern docs .",
+    "test": "jest --watch",
+    "test:ci": "npm run lint && flow check && jest --coverage",
+    "prepublish": "npm run test:ci && npm run build",
+    "format":
+      "prettier --trailing-comma es5 --single-quote --write '*.{js,json,css,md}' '**/*.{js,json,css,md}'"
+  },
+  "lint-staged": {
+    "*.{js,json,css,md}": [
+      "prettier --trailing-comma es5 --single-quote --write",
+      "git add"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url":
+      "git+https://insidersbyte@github.com/InsidersByte/react-detect-browser.git"
+  },
+  "author": "Jonathon Kelly <jonathon@insidersbyte.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/InsidersByte/react-detect-browser/issues"
+  },
+  "homepage": "https://github.com/InsidersByte/react-detect-browser#readme",
+  "peerDependencies": {
+    "detect-browser": "^2.0.0",
+    "prop-types": "^15.5.10",
+    "react": ">=0.14.7"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "autoprefixer": "7.2.5",
+    "babel-cli": "6.26.0",
+    "babel-core": "6.26.0",
+    "babel-eslint": "8.2.1",
+    "babel-jest": "22.1.0",
+    "babel-plugin-flow-react-proptypes": "15.1.0",
+    "babel-preset-env": "1.6.1",
+    "babel-preset-react": "6.24.1",
+    "detect-browser": "^2.0.0",
+    "enzyme": "3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "eslint": "4.16.0",
+    "eslint-config-airbnb": "16.1.0",
+    "eslint-config-prettier": "2.9.0",
+    "eslint-plugin-import": "2.8.0",
+    "eslint-plugin-jsx-a11y": "6.0.3",
+    "eslint-plugin-react": "7.6.1",
+    "flow-bin": "0.64.0",
+    "flow-copy-source": "1.2.2",
+    "husky": "0.14.3",
+    "jest": "22.1.4",
+    "lint-staged": "6.1.0",
+    "prettier": "1.10.2",
+    "react": "16.2.0",
+    "react-dom": "16.2.0",
+    "react-test-renderer": "16.2.0",
+    "rimraf": "2.6.2"
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile": "<rootDir>/setupTests.js"
+  }
+}
